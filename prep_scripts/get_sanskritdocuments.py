@@ -2,8 +2,12 @@ from selenium import webdriver
 from time import sleep
 from selenium.webdriver.common.keys import Keys
 from parsel import Selector
+from selenium.webdriver.chrome.options import Options
 
-driver = webdriver.Chrome()
+options = Options()
+options.headless = True
+
+driver = webdriver.Chrome(options=options)
 driver.get('https://sanskritdocuments.org/')
 sleep(0.5)
 
@@ -35,7 +39,7 @@ out_file.close()
 with open('data_preparation/synthetic/sanskritdoc.txt', 'r') as f:
     lines = f.read()
 y = list(',.0123456789-_|')
-CHARMAP = [chr(i) for i in range(2304,2432)] + [chr(i) for i in range(65,90)] + y
+CHARMAP = [unichr(i) for i in range(2304,2432)] + [chr(i) for i in range(65,90)] + y
 
 f = open('data_preparation/synthetic/sanskritdoc.txt', 'w')
 """ Removing whitespace,empty lines and replacing english character with #"""

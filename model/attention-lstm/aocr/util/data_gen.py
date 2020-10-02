@@ -24,13 +24,13 @@ class DataGen(object):
     IMAGE_HEIGHT = 32
     x = []
     for i in range(2304,2432):
-        x.append(chr(i))
+        x.append(unichr(i))
     y = list(',.0123456789-_|#')
-    CHARMAP = ['', '', ''] + [chr(i) for i in range(2304,2432)] + y
+    CHARMAP = ['', '', ''] + [unichr(i) for i in range(2304,2432)] + y
 
     @staticmethod
     def set_full_ascii_charmap():
-        DataGen.CHARMAP = ['', '', ''] + [chr(i) for i in range(32, 127)]
+        DataGen.CHARMAP = ['', '', ''] + [unichr(i) for i in range(32, 127)]
 
     def __init__(self,
                  annotation_fn,

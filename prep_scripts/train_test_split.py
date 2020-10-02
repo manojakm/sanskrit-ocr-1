@@ -9,7 +9,7 @@ if len(sys.argv)<4:
 
 train_split, val_split, test_split = float(sys.argv[1]), float(sys.argv[2]), float(sys.argv[3])
 
-with open("label_data/annot_real.txt") as f_real:
+with open("label_data/annot_synthetic.txt") as f_real:
    real_lines = f_real.readlines()
 
 random.shuffle(real_lines)
@@ -37,26 +37,26 @@ for line in test_lines:
    fx.write('\n')
 fx.close()
 
-with open("label_data/annot_realTrain.txt") as f_train:
-   train_lines = f_train.readlines()    
+# with open("label_data/annot_realTrain.txt") as f_train:
+#    train_lines = f_train.readlines()    
 f1 = open('label_data/annot_synthetic.txt')
 lines = f1.readlines()
 for i in range(len(lines)):
    lines[i] = lines[i].replace(".png", ".jpg", 1)
-   #lines[i] = lines[i].replace(" ", " ", 1)
-# lines += "\n"
-f_synth = open('label_data/annot_synthetic_only.txt','w')
-random.shuffle(lines)
-f_synth.writelines(lines)
-f_synth.close()
-lines += train_lines
-random.shuffle(lines)
-print(lines[0])
+#    #lines[i] = lines[i].replace(" ", " ", 1)
+# # lines += "\n"
+# f_synth = open('label_data/annot_synthetic_only.txt','w')
+# random.shuffle(lines)
+# f_synth.writelines(lines)
+# f_synth.close()
+# lines += train_lines
+# random.shuffle(lines)
+# print(lines[0])
 
-f2 = open('label_data/annot_mixed.txt', 'w')
-f2.writelines(lines)
-f1.close()
-f2.close()
+# f2 = open('label_data/annot_mixed.txt', 'w')
+# f2.writelines(lines)
+# f1.close()
+# f2.close()
 
 # # ct = 0
 

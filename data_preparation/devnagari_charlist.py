@@ -43,7 +43,7 @@ with open(os.getcwd()+"/DevangariCharList.txt", 'w') as f:
     s = ord(u'\u0900')
     e = ord(u'\u097F') 
     while s<=e:
-        f.write(chr(s))
+        f.write(unichr(s))
         f.write('\n')
         s=s+1   
 

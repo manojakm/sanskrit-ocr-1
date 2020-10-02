@@ -55,13 +55,13 @@ def output_value(image_path):
 	i = 0
 	while i < len(out):
 		if out[i:i+2]=='23' or out[i:i+2]=='24':
-			out_word = out_word+chr(int(out[i:i+4]))
+			out_word = out_word+unichr(int(out[i:i+4]))
 			i = i+4
 		elif out[i:i+2]=='32' or out[i:i+2]=='35' or out[i:i+2]=='95' or out[i:i+2]=='46' or out[i:i+2]=='44' or out[i:i+2]=='45' or (out[i:i+2]<='57' and out[i:i+2]>='48'):
-			out_word = out_word+chr(int(out[i:i+2]))
+			out_word = out_word+unichr(int(out[i:i+2]))
 			i = i+2
 		elif out[i:i+3]=='124':
-			out_word = out_word+chr(int(out[i:i+3]))
+			out_word = out_word+unichr(int(out[i:i+3]))
 			i = i+3
 		else:
 			break

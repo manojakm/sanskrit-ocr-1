@@ -33,7 +33,6 @@ def generate(annotations_path, output_path, log_step=5000,
         
         for idx, line in enumerate(annotations):
             line = line.rstrip('\n')
-
             # Split the line on the first whitespace character and allow empty values for the label
             # NOTE: this does not allow whitespace in image paths
             line_match = re.match(r'(\S+)\s(.*)', line)
@@ -87,7 +86,7 @@ def generate(annotations_path, output_path, log_step=5000,
                 if idx % log_step == 0:
                     logging.info('Processed %s pairs.', idx+1)
             except:
-                print("File Not Found")
+                print("File Not Found", img_path)
 
     if idx:
         logging.info('Dataset is ready: %i pairs.', idx+1)
